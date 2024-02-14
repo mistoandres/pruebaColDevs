@@ -1,0 +1,276 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Bookings",
+        "description": "Descripción de tu API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/reservas/create": {
+            "post": {
+                "tags": [
+                    "Reservas"
+                ],
+                "summary": "Crear una nueva reserva.",
+                "operationId": "14f5c5f3fe1ee8399f2ae5235e1b7176",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_tour": {
+                                        "type": "number"
+                                    },
+                                    "usuario": {
+                                        "type": "string"
+                                    },
+                                    "fecha_reserva": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "cantidad_personas": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reserva creada exitosamente."
+                    },
+                    "500": {
+                        "description": "Error interno del servidor."
+                    }
+                }
+            }
+        },
+        "/api/reservas/{usuario}": {
+            "get": {
+                "tags": [
+                    "Reservas"
+                ],
+                "summary": "Obtener las reservas de un usuario por campo usuario.",
+                "operationId": "0c5049f44241e609d7c301883e0276d9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reservas listadas con exito."
+                    },
+                    "500": {
+                        "description": "Error interno del servidor."
+                    }
+                }
+            }
+        },
+        "/api/reservas/{id}": {
+            "delete": {
+                "tags": [
+                    "Reservas"
+                ],
+                "summary": "Cancelar una reserva por su ID.",
+                "operationId": "0d1c0f2c1fd26e5b0339526edb924c5e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reserva cancelada exitosamente."
+                    },
+                    "500": {
+                        "description": "Error interno del servidor."
+                    }
+                }
+            }
+        },
+        "/api/tours": {
+            "get": {
+                "tags": [
+                    "Tours"
+                ],
+                "summary": "Obtener todos los tours.",
+                "operationId": "ebc0d6534bdb9c858f10dbd1f4db4d0e",
+                "responses": {
+                    "200": {
+                        "description": "Listado de tours"
+                    }
+                }
+            }
+        },
+        "/api/tours/create": {
+            "post": {
+                "tags": [
+                    "Tours"
+                ],
+                "summary": "Crear un nuevo tour.",
+                "operationId": "b942302d694258424dd3817d686c17e4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "descripcion": {
+                                        "type": "string"
+                                    },
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "precio": {
+                                        "type": "number",
+                                        "format": "float"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tour creado exitosamente"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        },
+        "/api/tours/{id}": {
+            "get": {
+                "tags": [
+                    "Tours"
+                ],
+                "summary": "Obtener un tour por su ID.",
+                "operationId": "7a22b8026f9d39313f8e6fb7380b42c5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Datos del tour"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Tours"
+                ],
+                "summary": "Actualizar un tour por su ID.",
+                "operationId": "507cf6b444fe2d29e2337bb4d3c767bb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nombre": {
+                                        "type": "string"
+                                    },
+                                    "descripcion": {
+                                        "type": "string"
+                                    },
+                                    "fecha": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "precio": {
+                                        "type": "number",
+                                        "format": "float"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Tour actualizado exitosamente"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tours"
+                ],
+                "summary": "Eliminar un tour por su ID.",
+                "operationId": "113b6919cfabb053e660257605a4a5a7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tour eliminado exitosamente"
+                    },
+                    "500": {
+                        "description": "Error interno del servidor"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Reservas",
+            "description": "Operaciones relacionadas con las reservas."
+        },
+        {
+            "name": "Tours",
+            "description": "Operaciones relacionadas con los tours."
+        }
+    ]
+}
