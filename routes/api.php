@@ -25,6 +25,6 @@ Route::prefix('tours')->group(function () {
 
 Route::prefix('reservas')->group(function () {
     Route::post('/create', [ReservasController::class, 'create']);
-    Route::get('/', [ReservasController::class, 'getByUsuario']);
+    Route::get('/{usuario}', [ReservasController::class, 'getByUsuario']);
     Route::delete('/{id}', [ReservasController::class, 'delete']);
 });

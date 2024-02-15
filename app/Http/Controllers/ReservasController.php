@@ -43,7 +43,7 @@ class ReservasController extends Controller
             $data['fecha_reserva'] = $request['fecha_reserva'];
             $data['cantidad_personas'] = $request['cantidad_personas'];
             $res = Reservas::create($data);
-            return response()->json($res, 200);
+            return response()->json($res, 201);
         } catch (\Throwable $th) {
             return response()->json(['error' => $th->getMessage()], 500);
         }
@@ -57,10 +57,10 @@ class ReservasController extends Controller
      *     summary="Obtener las reservas de un usuario por campo usuario.",
      *     tags={"Reservas"},
      *     @OA\Parameter(
-     *         name="id",
+     *         name="usuario",
      *         in="path",
      *         required=true,
-     *         @OA\Schema(type="integer")
+     *         @OA\Schema(type="string")
      *     ),
      *     @OA\Response(response="200", description="Reservas listadas con exito."),
      *     @OA\Response(response="500", description="Error interno del servidor.")

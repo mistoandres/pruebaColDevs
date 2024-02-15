@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Bookings",
-        "description": "Descripción de tu API",
+        "description": "Prueba técnica ColDevs",
         "version": "1.0.0"
     },
     "paths": {
@@ -57,11 +57,11 @@
                 "operationId": "0c5049f44241e609d7c301883e0276d9",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "usuario",
                         "in": "path",
                         "required": true,
                         "schema": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     }
                 ],

@@ -1,66 +1,384 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Prueba Técnica ColDevs
 
-## About Laravel
+### Objetivo de la prueba
+Desarrollar una API Restful utilizando Laravel para gestionar el booking de tours. La API permitirá a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los tours y las reservas. La prueba evaluará la capacidad del candidato para trabajar con Laravel, incluyendo la creación de migraciones, modelos , controladores, rutas API, factories para datos de prueba y pruebas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologías utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* PHP
+* Laravel
+* Composer
+* Swagger
+* MySQL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Estado del proyecto
 
-## Learning Laravel
+<img alt="Static Badge" src="https://img.shields.io/badge/ESTADO-FINALIZADO-GREEN">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalación
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Para la instalación se deben seguir los siguientes pasos:
+1. Ejecutar para clonar repositorio desde GitHub: git clone https://github.com/mistoandres/pruebaColDev.git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Ejecutar para instalar las dependencias del proyecto: composer install
 
-## Laravel Sponsors
+3. Ejecutar: cp .env.example .env or copy .env.example .env
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. Ejecutar para generar una clave de aplicación única : php artisan key:generate
 
-### Premium Partners
+5. Ejecutar para crear una migración a la base de datos: php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+6. Ejecutar para crear los datos de prueba: php artisan db:seed
 
-## Contributing
+7. Ejecutar para iniciar el servidor de la aplicación: php artisan serve
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+8. Ir al enlace: [localhost:8000/api/documentation/ o 127.0.0.1:8000/api/documentation/](http://127.0.0.1:8000/api/documentation/)
 
-## Code of Conduct
+## Uso
+Para facilitar la documentación de la API, se empleó Swagger, una herramienta que permite documentarla de manera sencilla y estructurada. Durante este proceso, se utilizaron dos etiquetas (tags) para organizar los endpoints:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Tags Swagger
 
-## Security Vulnerabilities
+* Nombre: "Reservas"
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Descripción: "Operaciones relacionadas con las reservas."
 
-## License
+* Nombre: "Tours"
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Descripción: "Operaciones relacionadas con los tours."
+
+En cada tag se encuentran disponibles los endpoints relacionados con ella, los cuales se describen a continuación:
+
+### Endpoints Reservas
+
+* POST /api/reservas/create
+
+Estructura:
+
+"post": {
+    
+    "tags": [
+        "Reservas"
+    ],
+    "summary": "Crear una nueva reserva.",
+    "operationId": "14f5c5f3fe1ee8399f2ae5235e1b7176",
+    "requestBody": {
+        "required": true,
+        "content": {
+            "application/json": {
+                    "schema": {
+                    "properties": {
+                        "id_tour": {
+                            "type": "number"
+                        },
+                        "usuario": {
+                            "type": "string"
+                        },
+                        "fecha_reserva": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "cantidad_personas": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Reserva creada exitosamente."
+        },
+        "500": {
+            "description": "Error interno del servidor."
+        }
+    }
+
+* GET /api/reservas/{usuario}
+
+Estructura:
+
+"get": {
+
+    "tags": [
+        "Reservas"
+    ],
+    "summary": "Obtener las reservas de un usuario por campo usuario.",
+    "operationId": "0c5049f44241e609d7c301883e0276d9",
+    "parameters": [
+        {
+            "name": "usuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Reservas listadas con exito."
+        },
+        "500": {
+            "description": "Error interno del servidor."
+        }
+    }
+
+* DELETE /api/reservas/{id}
+
+Estructura:
+
+"delete": {
+
+    "tags": [
+        "Reservas"
+    ],
+    "summary": "Cancelar una reserva por su ID.",
+    "operationId": "0d1c0f2c1fd26e5b0339526edb924c5e",
+    "parameters": [
+        {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+                "type": "integer"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Reserva cancelada exitosamente."
+        },
+        "500": {
+            "description": "Error interno del servidor."
+        }
+    }
+
+### Endpoints Toures
+
+* GET /api/tours
+
+Estructura:
+
+"get": {
+
+    "tags": [
+        "Tours"
+    ],
+    "summary": "Obtener todos los tours.",
+    "operationId": "ebc0d6534bdb9c858f10dbd1f4db4d0e",
+    "responses": {
+        "200": {
+            "description": "Listado de tours"
+        }
+    }
+
+* POST /api/tours/create
+
+Estructura:
+
+"post": {
+
+    "tags": [
+        "Tours"
+    ],
+    "summary": "Crear un nuevo tour.",
+    "operationId": "b942302d694258424dd3817d686c17e4",
+    "requestBody": {
+        "required": true,
+        "content": {
+            "application/json": {
+                "schema": {
+                    "properties": {
+                        "nombre": {
+                            "type": "string"
+                        },
+                        "descripcion": {
+                            "type": "string"
+                        },
+                        "fecha": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "precio": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Tour creado exitosamente"
+        },
+        "500": {
+            "description": "Error interno del servidor"
+        }
+    }
+
+* GET /api/tours/{id}
+
+Estructura:
+
+"get": {
+
+    "tags": [
+        "Tours"
+    ],
+    "summary": "Obtener un tour por su ID.",
+    "operationId": "7a22b8026f9d39313f8e6fb7380b42c5",
+    "parameters": [
+        {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+                "type": "integer"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Datos del tour"
+        },
+        "500": {
+            "description": "Error interno del servidor"
+        }
+    }
+
+* PUT /api/tours/{id}
+
+Estructura:
+
+"put": {
+
+    "tags": [
+        "Tours"
+    ],
+    "summary": "Actualizar un tour por su ID.",
+    "operationId": "507cf6b444fe2d29e2337bb4d3c767bb",
+    "parameters": [
+        {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+                "type": "integer"
+            }
+        }
+    ],
+    "requestBody": {
+        "required": true,
+        "content": {
+            "application/json": {
+                "schema": {
+                    "properties": {
+                        "nombre": {
+                            "type": "string"
+                        },
+                        "descripcion": {
+                            "type": "string"
+                        },
+                        "fecha": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "precio": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Tour actualizado exitosamente"
+        },
+        "500": {
+            "description": "Error interno del servidor"
+        }
+    }
+
+* DELETE /api/tours/{id}
+
+Estructura:
+
+"delete": {
+
+    "tags": [
+        "Tours"
+    ],
+    "summary": "Eliminar un tour por su ID.",
+    "operationId": "113b6919cfabb053e660257605a4a5a7",
+    "parameters": [
+        {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+                "type": "integer"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Tour eliminado exitosamente"
+        },
+        "500": {
+            "description": "Error interno del servidor"
+        }
+    }
+
+## Pruebas unitarias
+
+Se definen pruebas unitarias para cada uno de los Endpoints. A continuación, se enumeran las pruebas que se realizan:
+
+### Test para reservas
+
+* test_create_reserva_for_tour() - Prueba unitaria para crear una reserva para un tour.
+
+* test_list_reserva_of_users() - Prueba unitaria para listar todas las reservas de un usuario.
+
+* test_cancel_reserva() - Prueba unitaria para cancelar una reserva.
+
+### Test para tours
+
+* test_get_all_tours() - Prueba unitaria para obtener todos los tours.
+
+* test_create_new_tour() - Prueba unitaria para crear un nuevo tour.
+
+* test_get_tour_by_id() - Prueba unitaria para obtener tour por su ID.
+
+* test_update_tour() - Prueba unitaria para editar tour por su ID.
+
+* test_delete_tour() - Prueba unitaria para eliminar tour por su ID.
+
+### Ejecutar pruebas unitarias
+
+* php artisan test - Ejecuta todas las pruebas unitarias.
+
+* php artisan test --filter {prueba_disponible} - Pruebas disponibles: 1. ReservasControllerTest, 2. ToursControllerTest. - Ejecuta una prueba.
+
+## Capturas de pantalla
+
+### Swagger
+![Swagger](image.png)
+
+### Ejemplo endpoint POST /api/reservas/create
+![Endpoint](image-1.png)
+
+### Pruebas unitarias
+![Pruebas unitarias](image-2.png)
+
+### Lista de rutas
+![Lista de rutas](image-3.png)
