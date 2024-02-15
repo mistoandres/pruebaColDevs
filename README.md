@@ -20,7 +20,7 @@ Desarrollar una API Restful utilizando Laravel para gestionar el booking de tour
 ## Instalación
 
 Para la instalación se deben seguir los siguientes pasos:
-1. Ejecutar para clonar repositorio desde GitHub: git clone https://github.com/mistoandres/pruebaColDev.git
+1. Ejecutar para clonar repositorio desde GitHub: git clone https://github.com/mistoandres/pruebaColDevs.git
 
 2. Ejecutar para instalar las dependencias del proyecto: composer install
 
